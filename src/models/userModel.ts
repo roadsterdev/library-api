@@ -1,7 +1,7 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
 interface IBorrowedBook {
-  bookId: mongoose.Schema.Types.ObjectId;
+  bookId: Schema.Types.ObjectId;
   borrowDate: Date;
   returnDate: Date | null;
   isReturned: boolean;
@@ -15,7 +15,7 @@ export interface IUser extends Document {
 }
 
 const borrowedBookSchema: Schema = new Schema({
-  bookId: { type: mongoose.Schema.Types.ObjectId, ref: 'Book', required: true },
+  bookId: { type: Schema.Types.ObjectId, ref: 'Book', required: true },
   borrowDate: { type: Date, required: true },
   returnDate: { type: Date, default: null },
   isReturned: { type: Boolean, required: true, default: false },
